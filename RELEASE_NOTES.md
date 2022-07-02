@@ -2,4 +2,5 @@
 
 ## 0.1.0-SNAPSHOT
 
-*   JRTB-0: added SpringBoot skeleton project
+* added stub telegram bot
+* added SpringBoot skeleton project
