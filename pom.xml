@@ -6,16 +6,19 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.github.nemiro54</groupId>
 	<artifactId>telegrambot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Telegram Bot</name>
 	<description>Telegram Bot for app development experience</description>
+
 	<properties>
 		<java.version>18</java.version>
+		<telegrambot.starter.version>6.1.0</telegrambot.starter.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -26,7 +29,20 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>org.telegram</groupId>
+			<artifactId>telegrambots-spring-boot-starter</artifactId>
+			<version>${telegrambot.starter.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
