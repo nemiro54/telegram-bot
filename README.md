@@ -3,6 +3,18 @@
 ## Idea
 The main idea is to get the experience of creating a real application which can be used by someone else.
 
+## Deployment
+Deployment process as easy as possible. Required software:
+* terminal for running bush scripts
+* docker
+* docker-compose
+
+To deploy application switch to needed branch and run bush script:
+
+$ bash start.sh ${BOT_NAME='your_bot_username'} ${BOT_TOKEN='your_bot_token'}
+
+That is all.
+
 ## Release Notes
 Can be found in [RELEASE_NOTES](RELEASE_NOTES.md).
 
