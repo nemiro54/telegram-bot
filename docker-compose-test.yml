@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  tb-db-dev:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'dev_tb_db'
+      MYSQL_USER: 'dev_tb_db_user'
+      MYSQL_PASSWORD: 'dev_tb_db_password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
