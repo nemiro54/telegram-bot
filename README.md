@@ -9,9 +9,9 @@ Deployment process as easy as possible. Required software:
 * docker
 * docker-compose
 
-To deploy application switch to needed branch and run bush script:
+To deploy the application, switch to needed branch and run the bash script:
 
-$ bash start.sh ${BOT_NAME='your_bot_username'} ${BOT_TOKEN='your_bot_token'}
+`bash start.sh ${BOT_NAME='your_bot_username'} ${BOT_TOKEN='your_bot_token'}`
 
 That is all.
 
