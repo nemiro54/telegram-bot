@@ -1,5 +1,6 @@
 package com.github.nemiro54.telegrambot.repository;
 
+import com.github.nemiro54.telegrambot.repository.entity.GroupSub;
 import com.github.nemiro54.telegrambot.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -50,5 +51,22 @@ class TelegramUserRepositoryIT {
 //        then
         Assertions.assertTrue(saved.isPresent());
         Assertions.assertEquals(telegramUser, saved.get());
+    }
+
+    @Sql(scripts = {"/sql/clearDbs.sql", "/sql/fiveGroupSubsForUser.sql"})
+    @Test
+    public void shouldProperlyGerAllGroupSubsForUser() {
+//        when
+        Optional<TelegramUser>userFromDB = telegramUserRepository.findById("1");
+
+//        then
+        Assertions.assertTrue(userFromDB.isPresent());
+        List<GroupSub> groupSubs = userFromDB.get().getGroupSubs();
+
+        for (int i = 0; i < groupSubs.size(); i++) {
+            Assertions.assertEquals(String.format("g%s", (i + 1)), groupSubs.get(i).getTitle());
+            Assertions.assertEquals(i + 1, groupSubs.get(i).getId());
+            Assertions.assertEquals(String.valueOf(i + 1), groupSubs.get(i).getLastArticleId());
+        }
     }
 }
