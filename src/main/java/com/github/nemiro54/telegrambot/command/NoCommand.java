@@ -12,7 +12,7 @@ public class NoCommand implements Command {
 
     public static final String NO_MESSAGE = """
             Я поддерживаю команды, начинающиеся со слеша "/".
-            Чтобы посмотреть список команд, ведите /help""";
+            Чтобы посмотреть список команд, напиши /help""";
 
     public NoCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
