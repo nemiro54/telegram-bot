@@ -1,5 +1,11 @@
 # Release Notes
 
+## 0.5.0-SNAPSHOT
+
+* added ability to subscribe on group
+* added ability to view the list of subscriptions to groups
+* added Java client for Javarush API for groups
+
 ## 0.4.0-SNAPSHOT
 
 * added repository layer
