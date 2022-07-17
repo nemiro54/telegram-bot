@@ -31,7 +31,7 @@ public class ListGroupSubCommand implements Command {
                 .orElseThrow(NotFoundException::new);
         String message;
         if (CollectionUtils.isEmpty(telegramUser.getGroupSubs())) {
-            message = "Пока нет подписок на группы. Чтобы добавить подписки напиши /addgroupsub";
+            message = "Пока нет подписок на группы. Чтобы добавить подписки напиши /addGroupSub";
         } else {
             String collectedGroups = telegramUser.getGroupSubs().stream()
                     .map(it -> String.format("%s, ID = %s\n", it.getTitle(), it.getId()))
