@@ -1,10 +1,14 @@
 # Release Notes
 
+## 0.6.0-SNAPSHOT
+
+* added the ability to delete a subscription to a group
+
 ## 0.5.0-SNAPSHOT
 
-* added ability to subscribe on group
-* added ability to view the list of subscriptions to groups
-* added Java client for Javarush API for groups
+* added the ability to subscribe on a group
+* added the ability to view the list of subscriptions to groups
+* added Java client for JavaRush API for groups
 
 ## 0.4.0-SNAPSHOT
 

@@ -13,7 +13,7 @@ import static java.util.Objects.isNull;
 @Data
 @Entity
 @Table(name = "group_sub")
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = "users")
 public class GroupSub {
 
     @Id
@@ -25,7 +25,7 @@ public class GroupSub {
     @Column(name = "last_article_id")
     private String lastArticleId;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "group_x_user",
             joinColumns = @JoinColumn(name = "group_sub_id"),
