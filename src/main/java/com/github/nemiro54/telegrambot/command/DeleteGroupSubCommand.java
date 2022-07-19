@@ -68,7 +68,11 @@ public class DeleteGroupSubCommand implements Command {
         if (CollectionUtils.isEmpty(groupSubs)) {
             message = "Пока нет подписок на группы. Чтобы добавить подписку напиши '/addGroupSub'";
         } else {
-            message = """
+            String userGroupSubData = groupSubs.stream()
+                    .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
+                    .collect(Collectors.joining());
+
+            message = String.format("""
                     Чтобы удалить подписку на группу - передай комадну вместе с ID группы.\s
                     Например: /deleteGroupSub 16\s
 
@@ -76,12 +80,9 @@ public class DeleteGroupSubCommand implements Command {
 
                     имя группы - ID группы\s
 
-                    %s""";
+                    %s""", userGroupSubData);
         }
-        String userGroupSubData = groupSubs.stream()
-                .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
-                .collect(Collectors.joining());
 
-        sendBotMessageService.sendMessage(chatId, String.format(message, userGroupSubData));
+        sendBotMessageService.sendMessage(chatId, String.format(message, message));
     }
 }
