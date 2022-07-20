@@ -1,5 +1,6 @@
 package com.github.nemiro54.telegrambot.service;
 
+import com.github.nemiro54.telegrambot.javarushclient.JavaRushGroupClient;
 import com.github.nemiro54.telegrambot.javarushclient.dto.GroupDiscussionInfo;
 import com.github.nemiro54.telegrambot.repository.GroupSubRepository;
 import com.github.nemiro54.telegrambot.repository.TelegramUserRepository;
@@ -20,11 +21,15 @@ public class GroupSubServiceImpl implements GroupSubService {
 
     private final GroupSubRepository groupSubRepository;
     private final TelegramUserService telegramUserService;
+    private final JavaRushGroupClient javaRushGroupClient;
 
     @Autowired
-    public GroupSubServiceImpl(GroupSubRepository groupSubRepository, TelegramUserService telegramUserService) {
+    public GroupSubServiceImpl(GroupSubRepository groupSubRepository,
+                               TelegramUserService telegramUserService,
+                               JavaRushGroupClient javaRushGroupClient) {
         this.groupSubRepository = groupSubRepository;
         this.telegramUserService = telegramUserService;
+        this.javaRushGroupClient = javaRushGroupClient;
     }
 
     @Override
@@ -45,6 +50,7 @@ public class GroupSubServiceImpl implements GroupSubService {
         } else {
             groupSub = new GroupSub();
             groupSub.addUser(telegramUser);
+            groupSub.setLastPostId(javaRushGroupClient.findLastPostId(groupDiscussionInfo.getId()));
             groupSub.setId(groupDiscussionInfo.getId());
             groupSub.setTitle(groupDiscussionInfo.getTitle());
         }

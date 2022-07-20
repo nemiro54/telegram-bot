@@ -5,6 +5,7 @@ import com.github.nemiro54.telegrambot.javarushclient.dto.GroupDiscussionInfo;
 import com.github.nemiro54.telegrambot.javarushclient.dto.GroupInfo;
 import com.github.nemiro54.telegrambot.javarushclient.dto.GroupRequestArgs;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 /**
@@ -41,4 +42,6 @@ public interface JavaRushGroupClient {
      * @return {@link GroupDiscussionInfo} objects
      */
     GroupDiscussionInfo getGroupById(Integer id);
+
+    Integer findLastPostId(Integer groupSub);
 }
