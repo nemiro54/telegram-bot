@@ -1,5 +1,6 @@
 package com.github.nemiro54.telegrambot.command;
 
+import com.github.nemiro54.telegrambot.command.annotation.AdminCommand;
 import com.github.nemiro54.telegrambot.repository.entity.TelegramUser;
 import com.github.nemiro54.telegrambot.service.SendBotMessageService;
 import com.github.nemiro54.telegrambot.service.TelegramUserService;
@@ -9,6 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 /**
  * Statistics {@link Command}.
  */
+@AdminCommand
 public class StatCommand implements Command {
 
     private final TelegramUserService telegramUserService;
