@@ -3,6 +3,7 @@ package com.github.nemiro54.telegrambot.command;
 import com.github.nemiro54.telegrambot.javarushclient.JavaRushGroupClient;
 import com.github.nemiro54.telegrambot.service.GroupSubService;
 import com.github.nemiro54.telegrambot.service.SendBotMessageService;
+import com.github.nemiro54.telegrambot.service.StatisticService;
 import com.github.nemiro54.telegrambot.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,8 +25,9 @@ class CommandContainerTest {
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
         JavaRushGroupClient javaRushGroupClient = Mockito.mock(JavaRushGroupClient.class);
         GroupSubService groupSubService = Mockito.mock(GroupSubService.class);
+        StatisticService statisticService = Mockito.mock(StatisticService.class);
         commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, javaRushGroupClient,
-                groupSubService, singletonList("username"));
+                groupSubService, statisticService, singletonList("username"));
     }
 
     @Test
