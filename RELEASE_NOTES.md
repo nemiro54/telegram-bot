@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.8.0-SNAPSHOT
+
+* added extended bot statistics for admins
+
 ## 0.7.0-SNAPSHOT
 
 * added ability to send notifications about new posts
